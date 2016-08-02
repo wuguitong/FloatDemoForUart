@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/big_window_layout"
 	android:layout_width="300dip"
-	android:layout_height="450dip"
+	android:layout_height="500dip"
 	android:orientation="vertical"
     >
     <LinearLayout
@@ -117,6 +117,14 @@
                 />
         </LinearLayout>
     </LinearLayout>
+    <Button
+        android:id="@+id/home"
+        android:layout_width="180dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dip"
+        android:text="HOME"
+        />
     <Button
         android:id="@+id/back"
         android:layout_width="180dip"

@@ -76,6 +76,9 @@ public class FloatWindowBigView extends LinearLayout {
 		Button sourceHdmi1 = (Button)findViewById(R.id.SOURCE_HDMI1);
 		Button sourceHdmi2 = (Button)findViewById(R.id.SOURCE_HDMI2);
 		Button sourceHdmi3 = (Button)findViewById(R.id.SOURCE_HDMI3);
+
+		Button home = (Button)findViewById(R.id.home);
+
 		cn8HdmiUsb.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -199,6 +202,13 @@ public class FloatWindowBigView extends LinearLayout {
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				}
+			}
+		});
+
+		home.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				MyWindowManager.StartHomeActivity(context);
 			}
 		});
 	}
