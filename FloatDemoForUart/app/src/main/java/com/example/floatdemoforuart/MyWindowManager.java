@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.view.Gravity;
 import android.view.WindowManager;
@@ -46,9 +47,8 @@ public class MyWindowManager {
 
 	/**
 	 * 创建一个小悬浮窗。初始位置为屏幕的右部中间位置。
-	 * 
-	 * @param context
-	 *            必须为应用程序的Context.
+	 *
+	 * @param context 必须为应用程序的Context.
 	 */
 	public static void createSmallWindow(Context context) {
 		WindowManager windowManager = getWindowManager(context);
@@ -75,9 +75,8 @@ public class MyWindowManager {
 
 	/**
 	 * 将小悬浮窗从屏幕上移除。
-	 * 
-	 * @param context
-	 *            必须为应用程序的Context.
+	 *
+	 * @param context 必须为应用程序的Context.
 	 */
 	public static void removeSmallWindow(Context context) {
 		if (smallWindow != null) {
@@ -89,9 +88,8 @@ public class MyWindowManager {
 
 	/**
 	 * 创建一个大悬浮窗。位置为屏幕正中间。
-	 * 
-	 * @param context
-	 *            必须为应用程序的Context.
+	 *
+	 * @param context 必须为应用程序的Context.
 	 */
 	public static void createBigWindow(Context context) {
 		WindowManager windowManager = getWindowManager(context);
@@ -117,9 +115,8 @@ public class MyWindowManager {
 
 	/**
 	 * 将大悬浮窗从屏幕上移除。
-	 * 
-	 * @param context
-	 *            必须为应用程序的Context.
+	 *
+	 * @param context 必须为应用程序的Context.
 	 */
 	public static void removeBigWindow(Context context) {
 		if (bigWindow != null) {
@@ -132,7 +129,7 @@ public class MyWindowManager {
 
 	/**
 	 * 是否有悬浮窗(包括小悬浮窗和大悬浮窗)显示在屏幕上。
-	 * 
+	 *
 	 * @return 有悬浮窗显示在桌面上返回true，没有的话返回false。
 	 */
 	public static boolean isWindowShowing() {
@@ -141,9 +138,8 @@ public class MyWindowManager {
 
 	/**
 	 * 如果WindowManager还未创建，则创建一个新的WindowManager返回。否则返回当前已创建的WindowManager。
-	 * 
-	 * @param context
-	 *            必须为应用程序的Context.
+	 *
+	 * @param context 必须为应用程序的Context.
 	 * @return WindowManager的实例，用于控制在屏幕上添加或移除悬浮窗。
 	 */
 	private static WindowManager getWindowManager(Context context) {
@@ -155,9 +151,8 @@ public class MyWindowManager {
 
 	/**
 	 * 如果ActivityManager还未创建，则创建一个新的ActivityManager返回。否则返回当前已创建的ActivityManager。
-	 * 
-	 * @param context
-	 *            可传入应用程序上下文。
+	 *
+	 * @param context 可传入应用程序上下文。
 	 * @return ActivityManager的实例，用于获取手机可用内存。
 	 */
 	private static ActivityManager getActivityManager(Context context) {
@@ -165,6 +160,14 @@ public class MyWindowManager {
 			mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 		}
 		return mActivityManager;
+	}
+
+	public static void StartTvActivity(Context context) {
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.MAIN");
+		intent.addCategory("android.intent.category.TV_HOME");
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		context.startActivity(intent);
 	}
 
 }
