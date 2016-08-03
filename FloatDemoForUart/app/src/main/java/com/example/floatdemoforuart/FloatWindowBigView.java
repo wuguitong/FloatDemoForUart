@@ -17,12 +17,17 @@ import com.cvte.tv.api.aidl.EnumInputStatus;
 import com.cvte.tv.api.aidl.ITVApiSystemInputSourceAidl;
 import com.cvte.tv.api.aidl.ITvApiManager;
 import com.example.serialtest.SerialDataUtil;
+import com.mstar.android.tvapi.common.AudioManager;
+import com.mstar.android.tvapi.common.TvManager;
+import com.mstar.android.tvapi.common.exception.TvCommonException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FloatWindowBigView extends LinearLayout {
-
+	public static final int HDMI_SWITCH_HDMI1 = 0;
+	public static final int HDMI_SWITCH_HDMI2 = 2;
+	public static final int HDMI_SWITCH_DP = 1;
 	/**
 	 * 记录大悬浮窗的宽度
 	 */
@@ -30,6 +35,7 @@ public class FloatWindowBigView extends LinearLayout {
 	private ITVApiSystemInputSourceAidl mSourceApi = null;
 	private List<EntityInputSource> mSourceList = null;
 	private List<Integer> idList = null;
+	private AudioManager audioManager = null;
 	/**
 	 * 记录大悬浮窗的高度
 	 */
@@ -42,6 +48,7 @@ public class FloatWindowBigView extends LinearLayout {
 		viewWidth = view.getLayoutParams().width;
 		viewHeight = view.getLayoutParams().height;
 		idList = new ArrayList<>();
+		audioManager = TvManager.getInstance().getAudioManager();
 		TvApiApplication.getTvApi(new TvServiceConnectListener() {
 			@Override
 			public void OnConnected(ITvApiManager iTvApiManager) {
@@ -68,16 +75,20 @@ public class FloatWindowBigView extends LinearLayout {
 		Button j9DpUsb = (Button) findViewById(R.id.J9_DP_USB);
 		Button j7HdmiUsb = (Button) findViewById(R.id.J7_HDMI_USB);
 		Button j5VgaUsb = (Button) findViewById(R.id.J5_VGA_USB);
-		Button back = (Button) findViewById(R.id.back);
 
 		//source
 		Button sourceTv = (Button)findViewById(R.id.SOURCE_TV);
 		Button sourceVga = (Button)findViewById(R.id.SOURCE_VGA);
-		Button sourceHdmi1 = (Button)findViewById(R.id.SOURCE_HDMI1);
+		Button sourceHdmi1Hdmi1 = (Button)findViewById(R.id.SOURCE_HDMI1_HDMI1);
+		Button sourceHdmi1Hdmi2 = (Button)findViewById(R.id.SOURCE_HDMI1_HDMI2);
+		Button sourceHdmi1Dp = (Button)findViewById(R.id.SOURCE_HDMI1_DP);
 		Button sourceHdmi2 = (Button)findViewById(R.id.SOURCE_HDMI2);
 		Button sourceHdmi3 = (Button)findViewById(R.id.SOURCE_HDMI3);
 
+		//hdmi port
+
 		Button home = (Button)findViewById(R.id.home);
+		Button back = (Button) findViewById(R.id.back);
 
 		cn8HdmiUsb.setOnClickListener(new OnClickListener() {
 			@Override
@@ -166,13 +177,44 @@ public class FloatWindowBigView extends LinearLayout {
 			}
 		});
 
-		sourceHdmi1.setOnClickListener(new OnClickListener() {
+		sourceHdmi1Hdmi1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(context,"HDMI1",Toast.LENGTH_SHORT).show();
 				try {
 					MyWindowManager.StartTvActivity(context);
 					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(2));
+					audioManager.setHdmiSwitchPort(HDMI_SWITCH_HDMI1);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				} catch (TvCommonException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		sourceHdmi1Hdmi2.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				try {
+					MyWindowManager.StartTvActivity(context);
+					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(2));
+					audioManager.setHdmiSwitchPort(HDMI_SWITCH_HDMI2);
+				} catch (TvCommonException e) {
+					e.printStackTrace();
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		sourceHdmi1Dp.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				try {
+					MyWindowManager.StartTvActivity(context);
+					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(2));
+					audioManager.setHdmiSwitchPort(HDMI_SWITCH_DP);
+				} catch (TvCommonException e) {
+					e.printStackTrace();
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				}
@@ -182,7 +224,6 @@ public class FloatWindowBigView extends LinearLayout {
 		sourceHdmi2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(context,"HDMI2",Toast.LENGTH_SHORT).show();
 				try {
 					MyWindowManager.StartTvActivity(context);
 					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(3));
@@ -195,7 +236,6 @@ public class FloatWindowBigView extends LinearLayout {
 		sourceHdmi3.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(context,"HDMI3",Toast.LENGTH_SHORT).show();
 				try {
 					MyWindowManager.StartTvActivity(context);
 					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(4));
@@ -211,5 +251,6 @@ public class FloatWindowBigView extends LinearLayout {
 				MyWindowManager.StartHomeActivity(context);
 			}
 		});
+
 	}
 }

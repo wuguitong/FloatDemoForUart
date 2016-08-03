@@ -92,7 +92,7 @@
                 android:text="VGA"
                 />
             <Button
-                android:id="@+id/SOURCE_HDMI1"
+                android:id="@+id/SOURCE_HDMI1_HDMI1"
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
@@ -100,7 +100,7 @@
                 android:text="HDMI1"
                 />
             <Button
-                android:id="@+id/SOURCE_HDMI2"
+                android:id="@+id/SOURCE_HDMI1_HDMI2"
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
@@ -108,12 +108,28 @@
                 android:text="HDMI2"
                 />
             <Button
+                android:id="@+id/SOURCE_HDMI1_DP"
+                android:layout_width="140dip"
+                android:layout_height="40dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dip"
+                android:text="DP Module"
+                />
+            <Button
+                android:id="@+id/SOURCE_HDMI2"
+                android:layout_width="140dip"
+                android:layout_height="40dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dip"
+                android:text="Android Module"
+                />
+            <Button
                 android:id="@+id/SOURCE_HDMI3"
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dip"
-                android:text="HDMI3"
+                android:text="PC Module"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -121,7 +137,7 @@
         android:id="@+id/home"
         android:layout_width="180dip"
         android:layout_height="40dip"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="12dip"
         android:text="HOME"
         />
@@ -129,7 +145,7 @@
         android:id="@+id/back"
         android:layout_width="180dip"
         android:layout_height="40dip"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="12dip"
         android:text="返回"
         />
