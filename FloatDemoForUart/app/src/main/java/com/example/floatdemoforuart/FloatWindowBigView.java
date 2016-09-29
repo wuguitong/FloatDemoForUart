@@ -26,7 +26,7 @@ import java.util.List;
 
 public class FloatWindowBigView extends LinearLayout {
 	public static final int HDMI_SWITCH_HDMI1 = 0;
-	public static final int HDMI_SWITCH_HDMI2 = 2;
+	public static final int HDMI_SWITCH_HDMI2 = 3;
 	public static final int HDMI_SWITCH_DP = 1;
 	/**
 	 * 记录大悬浮窗的宽度
