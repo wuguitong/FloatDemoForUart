@@ -8,7 +8,7 @@
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dip"
+        android:layout_height="350dip"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="150dip"
@@ -19,7 +19,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="CN8_HDMI_USB"
                 />
             <Button
@@ -27,7 +27,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="MS828_USB"
                 />
             <Button
@@ -35,7 +35,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="CN6_PC_USB"
                 />
             <Button
@@ -43,7 +43,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="HUB1_USB"
                 />
             <Button
@@ -51,7 +51,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="J9_DP_USB"
                 />
             <Button
@@ -59,7 +59,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="J7_HDMI_USB"
                 />
             <Button
@@ -67,7 +67,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="J5_VGA_USB"
                 />
         </LinearLayout>
@@ -80,7 +80,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="TV"
                 />
             <Button
@@ -88,7 +88,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="VGA"
                 />
             <Button
@@ -96,7 +96,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="HDMI1"
                 />
             <Button
@@ -104,7 +104,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="HDMI2"
                 />
             <Button
@@ -112,7 +112,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="DP Module"
                 />
             <Button
@@ -120,7 +120,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="Android Module"
                 />
             <Button
@@ -128,7 +128,7 @@
                 android:layout_width="140dip"
                 android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dip"
+                android:layout_marginTop="6dip"
                 android:text="PC Module"
                 />
         </LinearLayout>
@@ -138,7 +138,7 @@
         android:layout_width="180dip"
         android:layout_height="40dip"
         android:layout_gravity="center"
-        android:layout_marginTop="12dip"
+        android:layout_marginTop="6dip"
         android:text="Update Switch"
         />
     <Button
@@ -146,7 +146,7 @@
         android:layout_width="180dip"
         android:layout_height="40dip"
         android:layout_gravity="center"
-        android:layout_marginTop="12dip"
+        android:layout_marginTop="6dip"
         android:text="HOME"
         />
     <Button
@@ -154,7 +154,7 @@
         android:layout_width="180dip"
         android:layout_height="40dip"
         android:layout_gravity="center"
-        android:layout_marginTop="12dip"
+        android:layout_marginTop="6dip"
         android:text="返回"
         />
 </LinearLayout>
