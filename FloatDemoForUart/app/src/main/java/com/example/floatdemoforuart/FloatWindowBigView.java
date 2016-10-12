@@ -35,7 +35,7 @@ public class FloatWindowBigView extends LinearLayout {
 	private ITVApiSystemInputSourceAidl mSourceApi = null;
 	private List<EntityInputSource> mSourceList = null;
 	private List<Integer> idList = null;
-	private AudioManager audioManager = null;
+	private TvManager tvManager = null;
 	/**
 	 * 记录大悬浮窗的高度
 	 */
@@ -48,7 +48,7 @@ public class FloatWindowBigView extends LinearLayout {
 		viewWidth = view.getLayoutParams().width;
 		viewHeight = view.getLayoutParams().height;
 		idList = new ArrayList<>();
-		audioManager = TvManager.getInstance().getAudioManager();
+		tvManager = TvManager.getInstance();
 		TvApiApplication.getTvApi(new TvServiceConnectListener() {
 			@Override
 			public void OnConnected(ITvApiManager iTvApiManager) {
@@ -86,7 +86,7 @@ public class FloatWindowBigView extends LinearLayout {
 		Button sourceHdmi3 = (Button)findViewById(R.id.SOURCE_HDMI3);
 
 		//hdmi port
-
+		Button upgradeswitch = (Button)findViewById(R.id.UpgradeHdmi);
 		Button home = (Button)findViewById(R.id.home);
 		Button back = (Button) findViewById(R.id.back);
 
@@ -183,7 +183,7 @@ public class FloatWindowBigView extends LinearLayout {
 				try {
 					MyWindowManager.StartTvActivity(context);
 					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(2));
-					audioManager.setHdmiSwitchPort(HDMI_SWITCH_HDMI1);
+					tvManager.setHdmiSwitchPort(HDMI_SWITCH_HDMI1);
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				} catch (TvCommonException e) {
@@ -197,7 +197,7 @@ public class FloatWindowBigView extends LinearLayout {
 				try {
 					MyWindowManager.StartTvActivity(context);
 					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(2));
-					audioManager.setHdmiSwitchPort(HDMI_SWITCH_HDMI2);
+					tvManager.setHdmiSwitchPort(HDMI_SWITCH_HDMI2);
 				} catch (TvCommonException e) {
 					e.printStackTrace();
 				} catch (RemoteException e) {
@@ -212,7 +212,7 @@ public class FloatWindowBigView extends LinearLayout {
 				try {
 					MyWindowManager.StartTvActivity(context);
 					mSourceApi.eventSystemInputSourceSetInputSource(idList.get(2));
-					audioManager.setHdmiSwitchPort(HDMI_SWITCH_DP);
+					tvManager.setHdmiSwitchPort(HDMI_SWITCH_DP);
 				} catch (TvCommonException e) {
 					e.printStackTrace();
 				} catch (RemoteException e) {
@@ -244,7 +244,16 @@ public class FloatWindowBigView extends LinearLayout {
 				}
 			}
 		});
-
+		upgradeswitch.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				try {
+					tvManager.updateHdmiSwitchFirware();
+				} catch (TvCommonException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		home.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
